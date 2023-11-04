@@ -1,0 +1,7 @@
+<div class="search-main">
+<!-- <input class="search-bar" [(ngModel)]="search" (input)="searchTextEmit()"> -->
+<input class="search-bar" #serachText>
+<button class="btn btn-search" (click)="onSearchText()">Search</button>
+<div class="search-text" *ngIf="search != ''">Search For : {{search}}</div>
+
+</div>

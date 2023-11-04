@@ -1,0 +1,49 @@
+.header-main {
+  display: flex;
+  /* align-items: flex-end; */
+  justify-content: space-between;
+  gap: 100px;
+  background-color: #fff;
+  z-index: 99999;
+  padding: 12px;
+  text-align: center;
+}
+.header-first,
+.header-second,
+.header-sub {
+  display: flex;
+  gap: 50px;
+  padding: 20px 15px;
+  justify-content: space-between;
+}
+
+.search-bar {
+  width: 500px;
+  height: 45px;
+  margin: 25px 40px;
+}
+
+a,
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+.addToCart-main {
+  margin-right: 25px;
+  margin-top: 20px;
+  font-size: 38px;
+}
+
+.cart-icon {
+  width: 24px;
+  height: 45px;
+  margin: 10px 10px;
+}
+
+.login{
+  font-size: 24px;
+  padding: 10px 10px;
+  border: 2px solid #000;
+  cursor: pointer;
+}

@@ -1,0 +1,18 @@
+body{
+  position: relative;
+}
+
+p {
+  margin: 0;
+}
+
+.no-scroll {
+  position: fixed;
+}
+
+.cart-component{
+  background-color: red;
+  position: absolute;
+  right: 0;
+  
+}

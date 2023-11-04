@@ -1,0 +1,31 @@
+<div>
+
+  <app-search (searchTextEvent)="searchText($event)"></app-search>
+  <app-product-list
+    class="main"
+    [searchProduct]="search"
+    #productListComponent
+  ></app-product-list>
+  <ng-container>
+    <div *ngIf="showElement">
+      <product-detail
+        *ngIf="productListComponent.selectedProduct"
+        [productListComp]="productListComponent"
+        close
+        (clickOutside)="closeProductDetail()"
+        (popUpVisibleChange)="noScroll()"
+      ></product-detail>
+    </div>
+  </ng-container>
+  <div class="ekart-featured-products">
+    <div class="ekart"></div>
+  </div>
+</div>
+
+<!-- <img src="/assets/Iphone_img.jpg" alt="" width="250px" height="350px">
+<p>Name: {{product.name}}</p>
+<p>Price: {{product.price}}</p>
+<p>Model: {{product.model}}</p>
+<p>discounted price : {{product.discountedprice}}</p>
+<p> {{product.stock>0?'only '+product.stock+' Left':'No Stock'}}</p>
+<button [disabled]="!(product.stock>0)">Buy Now</button> -->

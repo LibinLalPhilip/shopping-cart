@@ -1,0 +1,106 @@
+<div class="ekart--product--close">
+  <div>
+    <div class="ekart--product--details--info scroll">
+      <div class="ekart-product-detail-close">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </div>
+      <div class="ekart-product-detail-image">
+        <img src="{{ prod.imageURL }}" class="ekart-product-detail-image" />
+      </div>
+
+      <div class="ekart-product-detail">
+        <div class="ekart-product-detail-name">
+          <h2>{{ prod.name }}</h2>
+        </div>
+        <div class="ekart-product-detail-gbc">
+          <span setBackground>MEN</span>
+          <span setBackground>NIKE</span>
+          <span setBackground>SPORTS</span>
+        </div>
+        <div class="ekart-product-detail-price">
+          <p>
+            <b>Price Each Pair:</b>
+            <span style="background-color: red; color: white"
+            ><s>{{ prod.price | currency:'INR' }}</s></span
+            >
+            <span style="background-color: green; color: white">{{
+              prod.discountPrice | currency:'INR'
+            }}</span>
+            (Inclusive of all taxes)
+          </p>
+        </div>
+        <div class="ekart-product-detail-size">
+          <div style="padding: 5px 0px; border-bottom: #ccc 2px solid">
+            <h4>Available Size</h4>
+          </div>
+          <diV style="margin-top: 20px">
+            <div appProductDetailHover>
+              <span class="ekart-product-detail-available-size" data-size="6"
+                >6</span
+              >
+              <span class="ekart-product-detail-available-size" data-size="7"
+                >7</span
+              >
+              <span class="ekart-product-detail-available-size" data-size="8"
+                >8</span
+              >
+              <span class="ekart-product-detail-available-size" data-size="9"
+                >9</span
+              >
+            </div>
+          </diV>
+        </div>
+
+        <div class="ekart-product-detail-color">
+          <div style="padding: 5px 0px; border-bottom: #ccc 2px solid">
+            <h4>Available Color</h4>
+          </div>
+          <diV style="margin-top: 20px">
+            <div ProductDetailHoverColor>
+              <span
+                class="ekart-product-detail-available-color"
+                style="background-color: red"
+                value="red"
+              ></span>
+              <span
+                class="ekart-product-detail-available-color"
+                style="background-color: green"
+                value="green"
+              ></span>
+              <span
+                class="ekart-product-detail-available-color"
+                style="background-color: black"
+                value="black"
+              ></span>
+              <span
+                class="ekart-product-detail-available-color"
+                style="background-color: blue"
+                value="blue"
+              ></span>
+            </div>
+          </diV>
+        </div>
+
+        <div class="ekart-product-detail-desc">
+          <div style="padding: 5px 0px; border-bottom: #ccc 2px solid">
+            <h4>Product Description</h4>
+          </div>
+          <div style="margin-top: 20px">
+            <p>DESCRIPTION</p>
+          </div>
+        </div>
+      </div>
+      <div class="ekart-product-detail-addtoCart">
+        <button
+          class="btn-add-to-cart"
+          *ngIf="prod.is_in_inventory"
+          appHover
+          (click)="addToCart()"
+        >
+          ADD TO CART
+        </button>
+      </div>
+    </div>
+    <div class="overlay"></div>
+  </div>
+</div>
