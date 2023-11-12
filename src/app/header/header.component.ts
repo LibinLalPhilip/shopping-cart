@@ -11,13 +11,18 @@ export class HeaderComponent {
   log;
 
   constructor(private auth:Authorization){
-    this.log=this.auth.logIn;
+    this.log=this.auth.LoggedIn;
   }
 
   logIn(){
-    this.log=this.auth.loggedIn();
-    console.log(this.log);
+    this.log=true;
+    this.auth.login()
 
+  }
+
+  logOut(){
+    this.log=false;
+    this.auth.logout()
   }
 
 }

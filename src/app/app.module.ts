@@ -18,6 +18,16 @@ import { HoverDirective } from './Custom Directives/hover.directive';
 import { CloseDirective } from './Custom Directives/close.directive';
 import { ProductDetailHoverDirective } from './Custom Directives/product-detail-hover.directive';
 import { ProductDetailHoverColorDirective } from './Custom Directives/product-detail-hover-color.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+
+import {MatButtonModule} from '@angular/material/button'
+import {MatIconModule} from '@angular/material/icon'
+import {MatFormFieldModule} from '@angular/material/form-field'
+import {MatInputModule} from '@angular/material/input'
+
+import {MatDialogModule} from '@angular/material/dialog'
+
 
 
 
@@ -37,10 +47,15 @@ import { ProductDetailHoverColorDirective } from './Custom Directives/product-de
     CloseDirective,
     ProductDetailHoverDirective,
     ProductDetailHoverColorDirective,
+    LoginDialogComponent,
     
-
   ],
-  imports: [BrowserModule, NgbModule, NgbCarousel, FormsModule],
+  imports: [BrowserModule, NgbModule, NgbCarousel, FormsModule, BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -13,6 +13,9 @@ import { ProductDetailHoverDirective } from '../Custom Directives/product-detail
 import { ProductDetailHoverColorDirective } from '../Custom Directives/product-detail-hover-color.directive';
 import { PopupService } from '../services/popup.service';
 import { AddToCartService } from '../services/add-to-cart.service';
+import { Authorization } from '../services/authorisation.service';
+import { LoginDialogComponent } from './../login-dialog/login-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'product-detail',
@@ -40,34 +43,11 @@ export class ProductDetailComponent implements OnChanges {
     private renderer: Renderer2,
     private popUpService: PopupService,
     private color: AddToCartService,
-    private sizeSelected: AddToCartService
+    private sizeSelected: AddToCartService,
+    private auth:Authorization,
+    private dialog:MatDialog
   ) {
-    // this.selectedcolor = color.getColor;
-  }
-
-  @HostListener('click', ['$event']) onClick(appProductDetailHover) {
-    // console.log('appProductDetailHover', this.clickedElement);
-    // const element = event.target as HTMLElement;
-    // if (element.classList.contains('productHover')) {
-    //   console.log('Click prevented due to class "productHover"');
-    //   return; // Stop further execution of the function
-    // } else {
-    //   console.log('product detail component (parent)', event);
-    //   console.log('Reached here ', event);
-    //   this.clickedElement = event.target as HTMLElement;
-    //   console.log('This.selected size element', this.selectedSizeElement);
-    //   if (this.selectedSizeElement) {
-    //     this.renderer.removeClass(this.selectedSizeElement, 'productHover');
-    //     console.log(this.selectedSizeElement);
-    //   }
-    //   if (this.selectedSizeElement !== this.clickedElement) {
-    //     this.renderer.addClass(this.clickedElement, 'productHover');
-    //     this.selectedSizeElement = this.clickedElement;
-    //     console.log('log check here', this.selectedSizeElement);
-    //   } else {
-    //     this.selectedSizeElement = null;
-    //   }
-    // }
+   
   }
 
   ngOnChanges() {
@@ -85,7 +65,22 @@ export class ProductDetailComponent implements OnChanges {
   addToCart() {
     this.selectedcolor = this.color.getColor();
     this.size = this.sizeSelected.getSize();
-    console.log('cartcolour', this.selectedcolor);
-    console.log('cartsize', this.size);
+    // console.log('cartcolour', this.selectedcolor);
+    // console.log('cartsize', this.size);
+
+    if (this.auth.isLoggedIn()) {
+      // User is logged in, allow adding items to the cart
+      // Add your logic to add items to the cart here
+      console.log('Item added to cart:', this.selectedcolor, this.size);
+    } else {
+      // User is not logged in, show a notification to log in
+
+      const dialogRef = this.dialog.open(LoginDialogComponent, {
+        width: '250px'
+      });
+      
+      // Optionally, you can also navigate to the login page
+      // this.router.navigate(['/login']);
+    }
   }
 }

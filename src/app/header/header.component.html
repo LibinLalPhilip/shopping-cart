@@ -8,7 +8,9 @@
   <div class="header-sub"><a href="">Product</a>
   <div class="header-sub"><a href="">About</a>
   <div class="header-sub"><a href="">Contact</a> -->
-    <div class="login" (click)="logIn()">{{log}}</div>
+    <!-- <div class="login" (click)="logIn()"></div> -->
+    <div class="login" *ngIf="!log" (click)="logIn()">Log In</div>
+  <div class="login" *ngIf="log" (click)="logOut()">Log Out</div>
   </div>
   
 
